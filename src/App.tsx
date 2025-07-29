@@ -1,24 +1,47 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import { Todo } from "./types/Todo";
+import TodoForm from "./components/TodoForm";
+import TodoItem from "./components/TodoItem";
 
 function App() {
+  const [todos, setTodos] = useState<Todo[]>([]);
+
+  const handleAddTodo = (text: string) => {
+    const NewTodo: Todo = {
+      id: Date.now(),
+      text: text,
+      completed: false,
+    };
+    setTodos((prevTodos) => [...prevTodos, NewTodo]);
+  };
+  const handleDelete = (id: number) => {
+    setTodos((prev) => prev.filter((todo) => todo.id !== id));
+  };
+
+  const handleToggle = (id: number) => {
+    setTodos((prev) =>
+      prev.map((todo) =>
+        todo.id === id ? { ...todo, completed: !todo.completed } : todo
+      )
+    );
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>Todo List</h1>
+      <TodoForm onAddTodo={handleAddTodo} />
+      <ul>
+        {todos.map((todo) => (
+          <TodoItem
+            key={todo.id}
+            id={todo.id}
+            text={todo.text}
+            completed={todo.completed}
+            onToggle={handleToggle}
+            onDelete={handleDelete}
+          />
+        ))}
+      </ul>
     </div>
   );
 }
