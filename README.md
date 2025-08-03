@@ -1,29 +1,54 @@
-# React-Todo-app
+# 📝 React Todo App (TypeScript)
 
-این پروژه با [Create React App](https://github.com/facebook/create-react-app) راه‌اندازی شده و یک اپلیکیشن To-Do ساده با استفاده از React است.
+A lightweight and elegant Todo List app built using **React** and **TypeScript**. You can add tasks, mark them as complete, and delete them—all with a minimal and intuitive UI.
 
-## اجرای پروژه
+---
 
-در پوشه‌ی پروژه، دستورات زیر را می‌توان اجرا کرد:
+## 🔗 Live Demo
 
-### `npm start`
+👉 [Check out the live version here](http://localhost:3000/) or [Check out the live version here](http://192.168.31.214:3000/) 
 
-اجرای اپ در حالت توسعه.\
-باز شود در [http://localhost:3000](http://localhost:3000)
+*(Replace the link above with your actual Vercel or Netlify URL)*
 
-### `npm test`
+---
 
-اجرای تست‌ها در حالت تعاملی.
+## 🚀 Features
 
-### `npm run build`
+- ✅ Add new tasks
+- ✏️ Mark tasks as complete/incomplete
+- 🗑️ Delete tasks
+- ⚡ Responsive design
+- 🔄 State management with React Hooks
+- 🔍 Type-safe code with TypeScript
 
-ایجاد نسخه production در پوشه‌ی `build`
+---
 
-### `npm run eject`
+## 🛠️ Tech Stack
 
-**هشدار:** این عملیات برگشت‌ناپذیر است!
+- **React**
+- **TypeScript**
+- **CSS / Styled Components** (customizable)
+- **Vite / CRA** (based on your setup)
 
-## اطلاعات بیشتر
+---
 
-- [مستندات Create React App](https://facebook.github.io/create-react-app/docs/getting-started)
-- [مستندات React](https://reactjs.org/)
+## 📦 File Structure
+
+src/ ├── components/ │ ├── TodoForm.tsx │ └── TodoItem.tsx ├── types/ │ └── Todo.ts ├── App.tsx └── index.tsx
+
+
+---
+
+## ⚙️ Installation
+
+```bash
+git clone https://github.com/SoroushX123/React-Todo-app.git
+cd React-Todo-app
+npm install
+npm start
+Then open http://localhost:3000 in your browser.
+
+📄 License
+This project is licensed under the MIT License.
+
+Made with ❤️ by [Soroush-Iliyat]
