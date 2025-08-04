@@ -6,7 +6,7 @@ A lightweight and elegant Todo List app built using **React** and **TypeScript**
 
 ## 🔗 Live Demo
 
-👉 [Check out the live version here](https://soroushx123.github.io/React-Todo-app/)
+//👉 [Check out the live version here](https://soroushx123.github.io/React-Todo-app/)
 
 *(Replace the link above with your actual Vercel or Netlify URL)*
 
