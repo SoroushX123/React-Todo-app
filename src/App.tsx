@@ -1,10 +1,27 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Todo } from "./types/Todo";
 import TodoForm from "./components/TodoForm";
 import TodoItem from "./components/TodoItem";
 
+
 function App() {
   const [todos, setTodos] = useState<Todo[]>([]);
+
+  useEffect(() => {
+    const storedTodos = localStorage.getItem("todos");
+    if (storedTodos) {
+      try {
+        const parsed: Todo[] = JSON.parse(storedTodos);
+        setTodos(parsed);
+      } catch (error) {
+        console.error("خطا در خواندن LocalStorage:", error);
+      }
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("todos", JSON.stringify(todos));
+  }, [todos]);
 
   const handleAddTodo = (text: string) => {
     const NewTodo: Todo = {
@@ -14,6 +31,7 @@ function App() {
     };
     setTodos((prevTodos) => [...prevTodos, NewTodo]);
   };
+
   const handleDelete = (id: number) => {
     setTodos((prev) => prev.filter((todo) => todo.id !== id));
   };
@@ -45,5 +63,6 @@ function App() {
     </div>
   );
 }
+
 
 export default App;
